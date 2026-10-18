@@ -1,0 +1,394 @@
+/* =========================================================
+   Global page
+   ========================================================= */
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.container-fluid {
+    width: 100%;
+    height: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+/* =========================================================
+   Main canvas
+   ========================================================= */
+
+.grid {
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+
+    background: #0b0e11;
+    color: #ddd;
+
+    font-family: system-ui, sans-serif;
+}
+
+
+/* =========================================================
+   Map
+   ========================================================= */
+
+.mapwrap {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    background: #0e1117;
+}
+
+.map-plot {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+}
+
+.map-plot > * {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.map-plot .html-widget {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.map-plot .plotly {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* =========================================================
+   Interpolated Preview
+   ========================================================= */
+
+.inset {
+    position: absolute;
+
+    top: 10px;
+    left: 10px;
+
+    width: 27%;
+
+    z-index: 10;
+
+    border: 1px solid #555;
+
+    background: #000;
+}
+
+.inset .lbl {
+    padding: 2px 6px;
+
+    font-size: 11px;
+
+    color: #bbb;
+
+    background: #222;
+}
+
+.inset-toggle {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+}
+
+.inset-arrow {
+    transition: transform 0.2s ease;
+}
+
+.inset.collapsed .inset-arrow {
+    transform: rotate(180deg);
+}
+
+.inset.collapsed .inset-content {
+    display: none;
+}
+
+/* =========================================================
+   Playback controls
+   ========================================================= */
+
+.play {
+    position: absolute;
+
+    right: 12px;
+    bottom: 12px;
+
+    z-index: 20;
+
+    display: flex;
+    gap: 6px;
+}
+
+
+/* =========================================================
+   Filmstrip + timeline
+   ========================================================= */
+
+.bottom {
+    position: absolute;
+    left: 35%;
+    bottom: 20px;
+    transform: translateX(-50%);
+
+    width: 50%;
+    max-width: 1000px;
+
+    z-index: 20;
+
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 8px;
+
+    background: rgba(21, 27, 31, 0.90);
+    border: 1px solid #2a333a;
+    border-radius: 8px;
+    backdrop-filter: blur(8px);
+}
+
+.strip {
+    display: flex;
+
+    gap: 6px;
+
+    overflow-x: auto;
+
+    padding-bottom: 4px;
+}
+
+.strip img {
+    flex: 0 0 auto;
+
+    width: 96px;
+    height: 54px;
+
+    object-fit: cover;
+
+    border: 1px solid #444;
+    border-radius: 3px;
+
+    cursor: pointer;
+}
+
+.strip img.sel {
+    border-color: #ffb347;
+
+    box-shadow: 0 0 6px #ffb347;
+}
+
+/* Chrome / Edge / Safari */
+.strip::-webkit-scrollbar {
+    width: 4px;
+}
+
+.strip::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.strip::-webkit-scrollbar-thumb {
+    background: #3a444c;
+    border-radius: 4px;
+}
+
+.strip::-webkit-scrollbar-thumb:hover {
+    background: #56636d;
+}
+
+
+/* =========================================================
+   Sidebar container
+   ========================================================= */
+
+.sidebar-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    bottom: 10px;
+    width: 360px;
+    z-index: 100;
+
+    /* Do not let the container itself affect mouse events */
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   Sidebar
+   ========================================================= */
+
+.side {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 360px;
+    height: 100%;
+    box-sizing: border-box;
+
+    pointer-events: auto;
+
+    background: rgba(21, 27, 31, 0.96);
+    border: 1px solid #2a333a;
+    border-radius: 6px;
+    overflow: hidden;
+    backdrop-filter: blur(8px);
+
+    transition: transform 0.25s ease;
+}
+
+.side-content {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    overflow-y: auto;
+}
+
+/* Chrome / Edge / Safari */
+.side-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.side-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.side-content::-webkit-scrollbar-thumb {
+    background: #3a444c;
+    border-radius: 4px;
+}
+
+.side-content::-webkit-scrollbar-thumb:hover {
+    background: #56636d;
+}
+
+/* =========================================================
+   Sidebar collapsed
+   ========================================================= */
+
+.side.collapsed {
+    transform: translateX(calc(100% + 10px));
+}
+
+
+
+/* =========================================================
+   Sidebar toggle
+   ========================================================= */
+
+.sidebar-toggle {
+    position: absolute;
+
+    /* Immediately to the left of the sidebar */
+    left: -36px;
+    top: 20px;
+
+    width: 36px;
+    height: 40px;
+
+    z-index: 101;
+    pointer-events: auto;
+
+    box-sizing: border-box;
+    padding: 0;
+
+    border: 1px solid #2a333a;
+    border-right: none;
+    border-radius: 6px 0 0 6px;
+
+    background: rgba(21, 27, 31, 0.96);
+    color: #ddd;
+
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+
+.sidebar-toggle.collapsed {
+    position: fixed;
+
+    top: 20px;
+    right: 10px;
+    left: auto;
+
+    border: 1px solid #2a333a;
+    border-radius: 6px;
+}
+
+/*
+ * When the sidebar is collapsed, the whole
+ * sidebar-container moves right. The button
+ * therefore moves with it and becomes visible
+ * at the right edge of the screen.
+ *
+ * We don't need a second position rule here.
+ */
+
+
+/* =========================================================
+   Miscellaneous sidebar elements
+   ========================================================= */
+
+.cbar {
+    height: 12px;
+
+    margin: 8px 0;
+
+    border-radius: 6px;
+
+    background: linear-gradient(
+        90deg,
+        #5e4fa2,
+        #3288bd,
+        #66c2a5,
+        #fee08b,
+        #f46d43
+    );
+}
+
+.kv {
+    font-family: ui-monospace, monospace;
+
+    font-size: 12px;
+
+    color: #9fd8c9;
+
+    line-height: 1.6;
+}
+
+h5 {
+    margin: 12px 0 6px;
+
+    color: #7fd4c1;
+
+    font-size: 13px;
+}

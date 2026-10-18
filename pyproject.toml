@@ -1,0 +1,15 @@
+[project]
+name = "fifa-viz"
+version = "0.1.0"
+description = "FIFA data visualization application"
+requires-python = ">=3.12"
+dependencies = [
+    "shiny",
+    "folium",
+    "mapbox",
+    "geopandas",
+    "matplotlib",
+    "shinywidgets",
+    "plotly",
+    "numpy"
+]
