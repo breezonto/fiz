@@ -1,6 +1,6 @@
 # FIZ - FIFA Dataset Visualization
 
-This is the project **F**ifa Dataset **V**isuali**z**tion, a visual analytics & query system based on Python + Shiny for [FIFA 2023 Complete Player Dataset](https://www.kaggle.com/datasets/stefanoleone992/fifa-23-complete-player-dataset).
+This is the project **F**ifa Dataset **V**isuali**z**tion, a visual analytics & query application based on Python + Shiny for [FIFA 2023 Complete Player Dataset](https://www.kaggle.com/datasets/stefanoleone992/fifa-23-complete-player-dataset).
 
 ## Setup
 
